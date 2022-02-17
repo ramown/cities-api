@@ -3,10 +3,12 @@ package com.github.ramown.api.services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.github.ramown.api.dtos.DistanceDTO;
 import com.github.ramown.api.repositories.CityRepository;
 
+@Service
 public class DistanceService {
 	
 	Logger log = LoggerFactory.getLogger(DistanceService.class);

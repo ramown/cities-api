@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.github.ramown.api.entities.Distance;
+import com.github.ramown.api.dtos.DistanceDTO;
 import com.github.ramown.api.services.DistanceService;
 
 @RestController
@@ -23,7 +23,7 @@ public class DistanceResource {
 	
 	
 	@GetMapping("/by-points")
-	public ResponseEntity<Distance> byPoints(@RequestParam(name="from") final Long city1,
+	public ResponseEntity<DistanceDTO> byPoints(@RequestParam(name="from") final Long city1,
 			@RequestParam(name="to") final Long city2) {
 		log.info("byPoints");
 		return ResponseEntity.ok(service.distanceByPointsInMiles(city1, city2));

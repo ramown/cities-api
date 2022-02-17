@@ -1,7 +1,8 @@
 package com.github.ramown.api.services;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,10 +26,9 @@ public class CountryService {
 		return repository.findAll(page);
 	}
 
-	public Optional<Country> getCountryById(Long id) {
-		Optional<Country> optional = repository.findById(id);
-		return optional;
-		
+	public Country getCountryById(Long id) {
+		return repository.findById(id).orElseThrow(
+				() -> new EntityNotFoundException("Id not found: " + id));
 	}
 
 }

@@ -1,8 +1,12 @@
 package com.github.ramown.api.dtos;
 
+import java.io.Serializable;
+
 import com.github.ramown.api.entities.City;
 
-public class DistanceDTO {
+public class DistanceDTO implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	private CityDTO from;
 	private CityDTO to;

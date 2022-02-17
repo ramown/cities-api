@@ -21,7 +21,6 @@ public class DistanceResource {
 	@Autowired
 	private DistanceService service;
 	
-	
 	@GetMapping("/by-points")
 	public ResponseEntity<DistanceDTO> byPoints(@RequestParam(name="from") final Long city1,
 			@RequestParam(name="to") final Long city2) {

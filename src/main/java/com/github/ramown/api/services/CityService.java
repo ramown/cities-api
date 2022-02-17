@@ -1,7 +1,8 @@
 package com.github.ramown.api.services;
 
 import java.util.List;
-import java.util.Optional;
+
+import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -25,10 +26,9 @@ public class CityService {
 		return repository.findAll(page);
 	}
 
-	public Optional<City> getCitiesById(Long id) {
-		Optional<City> optional = repository.findById(id);
-		return optional;
-		
+	public City getCitiesById(Long id) {
+		return repository.findById(id).orElseThrow(
+				() -> new EntityNotFoundException("Id not found: " + id));	
 	}
 
 }
